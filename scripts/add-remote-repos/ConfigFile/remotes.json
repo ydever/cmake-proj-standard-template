@@ -1,0 +1,14 @@
+[
+    {
+        "name": "origin",
+        "url": "https://github.com/ydever/cmake-proj-standard-template.git"
+    },
+    {
+        "name": "gitee",
+        "url": "https://gitee.com/youngwow/cmake-proj-standard-template.git"
+    },
+    {
+        "name": "cltgl",
+        "url": "http://10.168.10.124:9080/personal-project/cmake-proj-standard-template.git"
+    }
+]
