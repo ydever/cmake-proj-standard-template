@@ -6,16 +6,18 @@ $remotes = git remote
 
 # 检查是否有远程仓库
 if (-not $remotes) {
-    Write-Output "No remotes found."
+    Write-Host "No remotes found."
     exit 1
 }
 
 # 遍历每个远程仓库并推送
 foreach ($remote in $remotes) {
-    Write-Output "Pushing to remote: $remote on branch: $currentBranch"
+    Write-Host "Pushing to remote: $remote on branch: $currentBranch"
     git push $remote $currentBranch
     if ($LASTEXITCODE -ne 0) {
-        Write-Output "Failed to push to $remote"
+        Write-Host "Failed to push to $remote" -ForegroundColor Red
+    }else{
+        Write-Host "Pushing to remote: $remote on branch: $currentBranch successed!" -ForegroundColor Green
     }
 }
 
