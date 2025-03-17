@@ -18,4 +18,4 @@ for REMOTE in $REMOTES; do
   git push $REMOTE $CURRENT_BRANCH || echo "Failed to push to $REMOTE"
 done
 
-echo "Finished pushing to all remotes."
+echo "Finished pushing"

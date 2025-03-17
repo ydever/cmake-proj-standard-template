@@ -19,4 +19,4 @@ foreach ($remote in $remotes) {
     }
 }
 
-Write-Output "Finished pushing to all remotes."
+Write-Output "Finished pushing"
