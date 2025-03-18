@@ -9,6 +9,7 @@
 3. [参考资源](#参考资源)
 4. [项目结构](#项目结构)
 5. [使用方式](#使用方式)
+6. [参考资源](#参考资源)
 
 ---
 
@@ -54,62 +55,80 @@ ProjectName/                   # 项目根目录
 ├── build_all.ps1              # windows.ps1构建脚本文件
 ├── build_all.bat              # windows.bat构建脚本文件
 ├── build_all.sh               # linux.sh构建脚本文件
+├── BatchPush.sh               # linux.bash推送脚本文件
 ├── ...                        # 其它构建相关的配置文件
 ├── .github/                   # GitHub 工作流相关配置（如 CI/CD）
 │   └── workflows/
-│       └── ci.yml             # GitHub Actions 配置文件
+│       ├── ci.yml             # GitHub Actions 配置文件
+│       └── ...
 ├── cmake/                     # 自定义 CMake 模块和脚本
 │   ├── FindMyLibrary.cmake    # 自定义 Find 模块（可选）
-│   └── MyProjectConfig.cmake  # 项目配置文件（用于安装）
+│   ├── MyProjectConfig.cmake  # 项目配置文件（用于安装）
+│   └── ...
 ├── include/                   # 公共头文件
-│   └── common/                # 项目公共头文件（推荐使用命名空间）
-│       ├── Module1.h
-│       └── Module2.h
+│   ├── common/                # 项目公共头文件（推荐使用命名空间）
+│   │   ├── Module1.h
+│   │   ├── Module2.h
+│   │   └── ...
+│   └── ...        
 ├── src/                       # 项目源代码
 │   ├── Module1/               # 模块 1
 │   │   ├── CMakeLists.txt     # 模块 1 的 CMake 配置文件
 │   │   ├── include            # 模块 1 的头文件目录
 │   │   │   ├── xxx1.h
-│   │   │   └── xxx2.h
+│   │   │   ├── xxx2.h
+│   │   │   └── ...
 │   │   ├── source             # 模块 1 的源文件目录
 │   │   │   ├── xxx1.cpp
-│   │   │   └── xxx2.cpp
+│   │   │   ├── xxx2.cpp
+│   │   │   └── ...
 │   │   └── Module1.cpp        # 模块 1 的入口文件
 │   ├── Module2/               # 模块 2
 │   │   ├── CMakeLists.txt     # 模块 2 的 CMake 配置文件
 │   │   ├── include            # 模块 2 的头文件目录
 │   │   │   ├── xxx1.h
-│   │   │   └── xxx2.h
+│   │   │   ├── xxx2.h
+│   │   │   └── ...
 │   │   ├── source             # 模块 2 的源文件目录
 │   │   │   ├── xxx1.cpp
-│   │   │   └── xxx2.cpp
+│   │   │   ├── xxx2.cpp
+│   │   │   └── ...
 │   │   └── Module2.cpp        # 模块 2 的入口文件
 │   └── main.cpp               # 主程序入口
 ├── tests/                     # 单元测试
 │   ├── CMakeLists.txt         # 测试的 CMake 配置文件
 │   ├── test_module1           # 模块 1 的测试
 │   │   └── test_module1.cpp
-│   └── test_module2           # 模块 2 的测试
-│       └── test_module1.cpp
+│   │   └── ...
+│   ├── test_module2           # 模块 2 的测试
+│   │   └── test_module1.cpp
+│   │   └── ...
+│   └── ...
 ├── examples/                  # 示例代码
 │   ├── CMakeLists.txt         # 示例的 CMake 配置文件
 │   ├── example1
-│   │   └── example1.cpp
-│   └── example2
-│       └── example2.cpp
+│   │   ├── example1.cpp
+│   │   └── ...
+│   ├── example2
+│   │   ├── example2.cpp
+│   │   └── ...
+│   └── ...
 ├── docs/                      # 文档
 │   ├── Doxyfile               # Doxygen 配置文件（可选）
 │   ├── design.md              # 设计文档
-│   ├── ...                    # 其它设计文档
-│   └── api/                   # API 文档（由 Doxygen 生成）
+│   ├── api/                   # API 文档（由 Doxygen 生成）
+│   └── ...                    # 其它开发文档
 ├── external/                  # 外部依赖（如第三方库）
 │   ├── CMakeLists.txt         # 外部依赖的 CMake 配置文件
-│   └── some_library/          # 第三方库
+│   ├── some_library/          # 第三方库
+│   └── ...                    # 其它第三方库
 ├── scripts/                   # 构建和部署脚本
 │   ├── build.sh               # 构建脚本
 │   ├── run_tests.sh           # 测试脚本
-│   └── deploy.sh              # 部署脚本
-└── build/                     # 构建输出目录（由 CMake 生成）
+│   ├── deploy.sh              # 部署脚本
+│   └── ...                    # 其它脚本
+├── build/                     # 构建输出目录（由 CMake 生成）
+└── ...
 ```
 
 ---
@@ -118,11 +137,11 @@ ProjectName/                   # 项目根目录
 
 - 环境准备
   - windows
-    - 使用`msvc`、`clang`编译器进行开发，请安装`visual studio \<version\>`所需版本的IDE
+    - 使用`msvc`、`clang`编译器进行开发，请安装`visual studio <version>`所需版本的IDE
     - 使用`mingw`编译器进行开发，请下载所需的`mingw`版本进行安装
     - 其它编译器，请配置对应的工具链环境
   - linux
-    - 使用gnu或者llvm-clang，请安装对应的工具链环境
+    - 使用`gnu`或者`llvm-clang`，请安装对应的工具链环境
   - 根据所使用的编译器修改对应`Cmakepresets.json`配置文件中对应的生成器配置
   - 安装`git`版本管理工具
   - 针对不同平台安装`cmake`软件
