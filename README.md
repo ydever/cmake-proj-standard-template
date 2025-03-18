@@ -48,6 +48,12 @@ ProjectName/                   # 项目根目录
 ├── LICENSE                    # 项目许可证文件
 ├── .gitignore                 # Git 忽略文件
 ├── .clang-format              # 代码格式化配置文件（可选）
+├── BatchPush.ps1              # windows.ps1推送脚本文件
+├── BatchPush.bat              # windows.bat推送脚本文件
+├── BatchPush.sh               # linux.sh推送脚本文件
+├── build_all.ps1              # windows.ps1构建脚本文件
+├── build_all.bat              # windows.bat构建脚本文件
+├── build_all.sh               # linux.sh构建脚本文件
 ├── ...                        # 其它构建相关的配置文件
 ├── .github/                   # GitHub 工作流相关配置（如 CI/CD）
 │   └── workflows/
