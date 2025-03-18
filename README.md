@@ -55,7 +55,6 @@ ProjectName/                   # 项目根目录
 ├── build_all.ps1              # windows.ps1构建脚本文件
 ├── build_all.bat              # windows.bat构建脚本文件
 ├── build_all.sh               # linux.sh构建脚本文件
-├── BatchPush.sh               # linux.bash推送脚本文件
 ├── ...                        # 其它构建相关的配置文件
 ├── .github/                   # GitHub 工作流相关配置（如 CI/CD）
 │   └── workflows/
